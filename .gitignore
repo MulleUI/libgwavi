@@ -11,3 +11,4 @@ test/test
 CMakeLists.txt
 CMakeCache.txt
 build/
+Makefile
