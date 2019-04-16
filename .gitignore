@@ -8,3 +8,6 @@ doc/latex
 doc/man
 lib/*
 test/test
+CMakeLists.txt
+CMakeCache.txt
+build/
