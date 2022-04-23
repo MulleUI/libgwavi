@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project (gwavi)
+project( gwavi)
 
 set(INC_DIRS
 	${PROJECT_SOURCE_DIR}/inc
@@ -18,6 +18,19 @@ set(HEADERS
 )
 
 include_directories(${INC_DIRS})
-link_directories(${LINK_DIRS})
 
 add_library(gwavi STATIC ${SOURCES} ${HEADERS})
+
+
+set_target_properties( gwavi
+    PROPERTIES
+    PUBLIC_HEADER "inc/gwavi.h"
+)
+
+install (TARGETS gwavi
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    PUBLIC_HEADER DESTINATION include/gwavi
+)
+
+
