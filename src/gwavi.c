@@ -34,6 +34,11 @@
  * This is the file containing gwavi library functions.
  */
 
+#if defined(_MSC_VER) && !defined(_CRT_SECURE_NO_WARNINGS)
+/* MSVC, We know now to use fopen/strcpy */
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #ifndef WIN32
@@ -222,7 +227,7 @@ write_chars_bin_failed:
  * @return 0 on success, -1 on error.
  */
 int
-gwavi_add_frame(struct gwavi_t *gwavi, unsigned char *buffer, size_t len)
+gwavi_add_frame(struct gwavi_t *gwavi, const unsigned char *buffer, size_t len)
 {
 	size_t maxi_pad;  /* if your frame is raggin, give it some paddin' */
 	size_t t;
@@ -287,7 +292,7 @@ gwavi_add_frame(struct gwavi_t *gwavi, unsigned char *buffer, size_t len)
  * @return 0 on success, -1 on error.
  */
 int
-gwavi_add_audio(struct gwavi_t *gwavi, unsigned char *buffer, size_t len)
+gwavi_add_audio(struct gwavi_t *gwavi, const unsigned char *buffer, size_t len)
 {
 	size_t maxi_pad;  /* in case audio bleeds over the 4 byte boundary  */
 	size_t t;
