@@ -6,3 +6,6 @@ build/
 lib/
 obj/
 Makefile
+.mulle-make-build-dir
+build-*
+.mulle

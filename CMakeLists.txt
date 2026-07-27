@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required( VERSION 3.15...99.99)
+
 project( gwavi)
 
 set(INC_DIRS
